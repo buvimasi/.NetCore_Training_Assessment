@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Training.Domain.Data;
+using Training.WebAPI.IServices;
+using Training.WebAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,8 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddDbContext<EmployeeDbContext>(options =>
            options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=.NetCoreTraining;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
-
-
+builder.Services.AddScoped<IEmployeeService, EmployeeServices>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
