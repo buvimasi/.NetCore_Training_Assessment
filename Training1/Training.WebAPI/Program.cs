@@ -11,6 +11,8 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<EmployeeDbContext>(options =>
            options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=.NetCoreTraining;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
 builder.Services.AddScoped<IEmployeeService, EmployeeServices>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ISoftLockService, SkillLockService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

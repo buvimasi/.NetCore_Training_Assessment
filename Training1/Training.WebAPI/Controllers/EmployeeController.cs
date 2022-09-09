@@ -27,10 +27,23 @@ namespace Training.WebAPI.Controllers
             return new OkObjectResult(employeeList);
 
         }
+        /// <summary>
+        /// Get the Employee info by Id
+        /// </summary>
+        /// <param name="employeeId"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult Employees(int employeeId)
+        {
+            var employeeList = _employeeService.GetEmployee(employeeId);
+            return new OkObjectResult(employeeList);
+
+        }
 
         /// <summary>
         /// Add the Employee Information
         /// </summary>
+        /// <param name="employeeModel"></param>
         /// <returns></returns>
 
         [HttpPost]
@@ -49,8 +62,10 @@ namespace Training.WebAPI.Controllers
         }
 
         /// <summary>
-        /// Edit the Employee Information
+        /// Update the Employee information
         /// </summary>
+        /// <param name="employeeId"></param>
+        /// <param name="employeeModel"></param>
         /// <returns></returns>
 
         [HttpPut, Route("{employeeId}")]
@@ -72,6 +87,7 @@ namespace Training.WebAPI.Controllers
         /// <summary>
         /// Delete the Employee Information
         /// </summary>
+        /// <param name="employeeId"></param>
         /// <returns></returns>
 
         [HttpDelete, Route("{employeeId}")]

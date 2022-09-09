@@ -65,6 +65,12 @@ namespace Training.WebAPI.Services
            
         }
 
+        public Employees GetEmployee(int employeeId)
+        {
+            var emp = _dbContext.Employees.FirstOrDefault(e => e.EmployeeID == employeeId);
+            return emp;
+        }
+
         public string UpdateEmployee(int employeeId, EmployeeModel employeeModel)
         {
             var employee = _dbContext.Employees.FirstOrDefault(e => e.EmployeeID == employeeId);
