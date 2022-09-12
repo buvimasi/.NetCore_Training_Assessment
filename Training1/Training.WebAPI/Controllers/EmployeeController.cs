@@ -32,7 +32,7 @@ namespace Training.WebAPI.Controllers
         /// </summary>
         /// <param name="employeeId"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpGet,Route("{employeeId}")]
         public ActionResult Employees(int employeeId)
         {
             var employeeList = _employeeService.GetEmployee(employeeId);
@@ -90,8 +90,8 @@ namespace Training.WebAPI.Controllers
         /// <param name="employeeId"></param>
         /// <returns></returns>
 
-        [HttpDelete, Route("{employeeId}")]
-        public ActionResult Employees(int employeeId)
+        [HttpDelete, Route("Delete/{employeeId}")]
+        public ActionResult EmployeesDelete(int employeeId)
         {
             try
             {
