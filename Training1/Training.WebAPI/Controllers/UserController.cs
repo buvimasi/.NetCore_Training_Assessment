@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Training.WebAPI.Helpers;
 using Training.WebAPI.IServices;
 using Training.WebAPI.Models;
 
@@ -15,9 +16,28 @@ namespace Training.WebAPI.Controllers
             _userService = userService;
         }
         /// <summary>
+        /// Authenticate method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+
+        [HttpPost("authenticate")]
+        public IActionResult Authenticate(AuthenticateRequest model)
+        {
+            var response = _userService.Authenticate(model);
+
+            if (response == null)
+                return BadRequest(new { message = "Username or password is incorrect" });
+
+            return Ok(response);
+        }
+
+
+        /// <summary>
         /// Get User List
         /// </summary>
         /// <returns></returns>
+        [Authorize]
         [HttpGet]
         public IActionResult GetUser()
         {

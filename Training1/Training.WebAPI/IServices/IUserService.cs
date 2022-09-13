@@ -8,5 +8,7 @@ namespace Training.WebAPI.IServices
         List<User> GetUser();
 
         string UpdateUser(UserModel user);
+        User GetById(int id);
+        AuthenticateResponse Authenticate(AuthenticateRequest model);
     }
 }

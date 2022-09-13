@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Training.Domain.Data;
+using Training.WebAPI.Helpers;
 using Training.WebAPI.IServices;
 using Training.WebAPI.Services;
 
@@ -30,6 +31,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.UseMiddleware<JwtMiddleware>();
 app.MapControllers();
 
 app.Run();

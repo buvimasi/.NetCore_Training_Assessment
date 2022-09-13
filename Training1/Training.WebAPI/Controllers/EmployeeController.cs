@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Training.WebAPI.Helpers;
 using Training.WebAPI.IServices;
 using Training.WebAPI.Models;
 
@@ -6,6 +7,7 @@ namespace Training.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class EmployeeController : ControllerBase
     {
         private readonly IEmployeeService _employeeService;
