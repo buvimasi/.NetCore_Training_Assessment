@@ -9,7 +9,7 @@
         public string Wfm_Manager { get; set; }
         public string Email { get; set; }
         public string LockStatus { get; set; }
-        public decimal Experience { get; set; }
+        public int Experience { get; set; }
         public int ProfileId { get; set; }
     }
 }

@@ -33,7 +33,7 @@ namespace Training.Domain.Entities
         [Column("lockstatus")]
         [MaxLength(30)]
         public string LockStatus { get; set; }
-        public decimal Experience { get; set; }
+        public int Experience { get; set; }
         [Column("profile_Id")]
         public int ProfileId { get; set; }
 
